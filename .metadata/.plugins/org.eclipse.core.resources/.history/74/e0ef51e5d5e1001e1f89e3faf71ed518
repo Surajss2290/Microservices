@@ -1,0 +1,17 @@
+spring.application.name=API-GATEWAY
+server.port=8083
+
+#routes configuration
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: service1-route
+          uri: lb://service1
+          predicates:
+            - Path=/service1/**
+        - id: service2-route
+          uri: lb://service2
+          predicates:
+            - Path=/service2/**
